@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onMapReady(GoogleMap googleMap) {
                 map = googleMap;
-            }
+                LatLng poi_CausewayPoint = new LatLng(1.436065, 103.786263);
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_CausewayPoint,
+                        15));
+        }
         });
 
         btn1 = (Button) findViewById(R.id.btn1);
